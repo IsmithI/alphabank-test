@@ -12,8 +12,8 @@ export default class Album extends Component {
 		return (
 			<div className="album card">
 				<Photo {...topPhoto} small/>
-				<div className="album-title">
-					<h2>{title}</h2>
+				<div className="card-body">
+					<h5 className="card-title">{title}</h5>
 				</div>
 			</div>
 		)
