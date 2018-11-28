@@ -7,7 +7,6 @@ import TopBar from './components/TopBar'
 
 import Album from './store/album';
 import Axios from 'axios';
-import { decorate } from 'mobx';
 import { observer } from 'mobx-react';
 
 const API = 'https://jsonplaceholder.typicode.com';
@@ -46,11 +45,11 @@ class App extends Component {
 			.then(albums => {
 
 				Axios.get(`${API}/photos`).then(photos => {
-					albums.data.map(a => {
+					this.props.store.albums = albums.data.map(a => {
 						const album = new Album({ ...a });
 						album.photos = photos.data.filter(p => p.albumId === album.id);
 
-						this.props.store.albums.push(album);
+						return album;
 					});
 					this.setState({ loaded: true });
 				})
