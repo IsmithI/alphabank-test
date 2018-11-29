@@ -25,9 +25,12 @@ class App extends Component {
 
 		return loaded ?
 			<React.Fragment>
-				<TopBar onSearchValueUpdate={this.updateFilter} />
+				<TopBar 
+					onSearchValueUpdate={this.updateFilter} 
+					onHomeButtonClick={this.toHomeView}
+				/>
 
-				<div className="container-fluid">
+				<div className="container-fluid" style={{marginTop: 72}}>
 					<main>
 						{store.view.name === "albums" ?
 							<AlbumsGrid 
@@ -55,6 +58,12 @@ class App extends Component {
 		this.props.store.view = {
 			name: "photos",
 			albumId
+		}
+	}
+
+	toHomeView = () => {
+		this.props.store.view = {
+			name: 'albums'
 		}
 	}
 

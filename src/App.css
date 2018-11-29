@@ -25,3 +25,7 @@ input.search-input:focus {
 	border-bottom: 3px solid rgb(196, 196, 196);
 	outline: none;
 }
+
+input.search-input.dark {
+	color: #fff;
+}

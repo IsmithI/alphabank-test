@@ -10,10 +10,13 @@ export default class TopBar extends Component {
 		const { seachValue } = this.state;
 
 		return (
-			<nav className="navbar navbar-light bg-light">
-				<span className="navbar-brand mb-0 h1">
-					<input type="text" className="search-input" placeholder="Type to search..." value={seachValue} onChange={this.updateSearchValue} />
-				</span>
+			<nav className="navbar navbar-dark bg-dark fixed-top">
+
+				<button className="btn btn-primary" onClick={this.props.onHomeButtonClick}>
+					<i className="fas fa-home"></i>
+				</button>
+				<input type="text" className="search-input dark" placeholder="Type to search..." value={seachValue} onChange={this.updateSearchValue} />
+
 			</nav>
 		)
 	}
