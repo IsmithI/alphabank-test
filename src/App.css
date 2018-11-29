@@ -1,5 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Oxygen|Lato');
+
 body {
 	background-color: rgb(251, 251, 251);
+	font-family: 'Lato', 'Verdana', sans-serif;
+}
+
+h1, h2, h3, h4 {
+	font-family: 'Oxygen', 'Arial', sans-serif;
+	font-weight: 500;
+}
+
+h5, h6 {
+	font-family: 'Lato', 'Verdana', sans-serif;
+	font-weight: 400;
 }
 
 .card {
@@ -15,7 +28,7 @@ body {
 }
 
 .card:hover {
-	box-shadow: 0 5px 12px 4px rgba(104, 149, 221, 0.205);
+	box-shadow: 0 5px 12px 4px rgba(1, 1, 1, 0.15);
 }
 
 .card-subtitle {
@@ -28,6 +41,8 @@ input.search-input {
 	background: transparent;
 
 	border-bottom: 3px solid rgb(196, 196, 196);
+
+	font-size: 20px;
 }
 
 input.search-input:focus {
