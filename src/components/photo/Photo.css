@@ -1,4 +1,6 @@
 .photo {
+	max-width: 600px;
+	
 	margin: 1em 1.5em;
 	color: #fff;
 	background-color: rgb(31, 31, 31);
