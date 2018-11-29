@@ -55,6 +55,7 @@ class App extends Component {
 	}
 
 	chooseAlbum = albumId => {
+		window.scrollTo(0, 0);
 		this.props.store.view = {
 			name: "photos",
 			albumId
