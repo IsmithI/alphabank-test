@@ -1,6 +1,17 @@
+.photo {
+	margin: 1em 1.5em;
+	background-color: rgb(236, 236, 236);
+	border-radius: 12px;
+}
+
+.photo-title {
+	padding: 0.7em;
+}
 
 .photo > img {
 	max-width: 100%;
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
 }
 
 .card-img-top {
