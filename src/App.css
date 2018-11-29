@@ -12,3 +12,16 @@ body {
 .card-subtitle {
 	padding: 0.5em;
 }
+
+input.search-input {
+	padding-bottom: 8px;
+	border: none;
+	background: transparent;
+
+	border-bottom: 3px solid rgb(196, 196, 196);
+}
+
+input.search-input:focus {
+	border-bottom: 3px solid rgb(196, 196, 196);
+	outline: none;
+}

@@ -12,7 +12,7 @@ export default class TopBar extends Component {
 		return (
 			<nav className="navbar navbar-light bg-light">
 				<span className="navbar-brand mb-0 h1">
-					<input type="text" className="form-control" placeholder="Type to search..." value={seachValue} onChange={this.updateSearchValue} />
+					<input type="text" className="search-input" placeholder="Type to search..." value={seachValue} onChange={this.updateSearchValue} />
 				</span>
 			</nav>
 		)
