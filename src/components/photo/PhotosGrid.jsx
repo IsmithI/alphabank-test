@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import './Grid.css';
+import '../Grid.css';
 import Photo from './Photo';
-import Loading from './loading/Loading';
+import Loading from '../loading/Loading';
 
 export default class PhotosGrid extends Component {
 

@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 
-import {AlbumCover} from './Photo';
+import {AlbumCover} from '../photo/Photo';
 
 export default class Album extends Component {
 

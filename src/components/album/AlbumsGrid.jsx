@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Album from '../components/Album';
+import Album from './Album';
 
-import './Grid.css';
+import '../Grid.css';
 
 export default class AlbumsGrid extends Component {
 	render() {

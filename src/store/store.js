@@ -1,4 +1,4 @@
-import { observable, decorate } from 'mobx';
+import { observable, decorate, intercept } from 'mobx';
 
 class ObservableStore {
 
@@ -7,6 +7,13 @@ class ObservableStore {
 	view = {
 		name: 'albums',
 		album: {}
+	}
+
+	constructor() {
+		intercept(this, 'view', newValue => {
+			window.scrollTo(0, 0);
+			return newValue;
+		})
 	}
 
 	set titleFilter(value) {

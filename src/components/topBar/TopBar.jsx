@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
-import Router, { Match } from './Router';
+import Router, { Match } from '../Router';
 
 import './TopBar.css';
 
 export default class TopBar extends Component {
 
-	state = {
-		seachValue: ""
-	}
+	state = { searchValue: "" }
 
 	render() {
-		const { seachValue } = this.state;
+		const { searchValue } = this.state;
 		const { view, onHomeButtonClick } = this.props;
 
 		return (
@@ -35,7 +33,7 @@ export default class TopBar extends Component {
 									type="text"
 									className="search-input dark"
 									placeholder="Type to search..."
-									value={seachValue}
+									value={searchValue}
 									onChange={this.updateSearchValue}
 								/>
 							</div>
@@ -56,7 +54,7 @@ export default class TopBar extends Component {
 	updateSearchValue = e => {
 		const value = e.target.value;
 
-		this.setState({ seachValue: value });
+		this.setState({ searchValue: value });
 		this.props.onSearchValueUpdate(value);
 	}
 }

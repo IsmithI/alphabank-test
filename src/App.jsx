@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 
 import Loading from './components/loading/Loading';
-import AlbumsGrid from './components/AlbumsGrid';
-import TopBar from './components/TopBar'
-import PhotosGrid from './components/PhotosGrid'
+import AlbumsGrid from './components/album/AlbumsGrid';
+import TopBar from './components/topBar/TopBar'
+import PhotosGrid from './components/photo/PhotosGrid'
 
 import Album from './store/album';
 import Axios from 'axios';
@@ -59,7 +59,6 @@ class App extends Component {
 	}
 
 	chooseAlbum = album => {
-		window.scrollTo(0, 0);
 		this.props.store.view = {
 			name: "photos",
 			album
@@ -67,7 +66,6 @@ class App extends Component {
 	}
 
 	toHomeView = () => {
-		window.scrollTo(0, 0);
 		this.props.store.view = {
 			name: 'albums',
 			album: {}
