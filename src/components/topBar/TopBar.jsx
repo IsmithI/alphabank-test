@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Router, { Match } from '../Router';
 
 import './TopBar.css';
+import SearchBar from './SearchBar';
 
 export default class TopBar extends Component {
 
@@ -30,16 +31,9 @@ export default class TopBar extends Component {
 									<h3>{view.album.title}</h3>
 								</div>
 								<div className="navbar-text">
-									<span className="mr-2 ml-2">
-										<i className="fas fa-search"></i>
-									</span>
-									<input
-										type="text"
-										className="search-input dark"
-										placeholder="Type to search..."
+									<SearchBar
 										value={searchValue}
-										onChange={this.updateSearchValue}
-										autoFocus={true}
+										onUpdate={this.updateSearchValue}
 									/>
 								</div>
 							</div>
@@ -55,18 +49,11 @@ export default class TopBar extends Component {
 							<span className="navbar-toggler-icon"></span>
 						</button>
 
-						<div className="collapse navbar-collapse" id="collapsibleNavbar" style={{justifyContent: "flex-end"}}>
+						<div className="collapse navbar-collapse" id="collapsibleNavbar" style={{ justifyContent: "flex-end" }}>
 							<div className="navbar-text">
-								<span className="mr-2 ml-2">
-									<i className="fas fa-search"></i>
-								</span>
-								<input
-									type="text"
-									className="search-input dark"
-									placeholder="Type to search..."
+								<SearchBar
 									value={searchValue}
-									onChange={this.updateSearchValue}
-									autoFocus={true}
+									onUpdate={this.updateSearchValue}
 								/>
 							</div>
 						</div>
