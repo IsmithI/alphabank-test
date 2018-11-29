@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Router, { Match } from '../Router';
 
 import './TopBar.css';
-import SearchBar from './SearchBar';
 
 export default class TopBar extends Component {
 

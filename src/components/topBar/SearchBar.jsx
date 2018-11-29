@@ -6,7 +6,6 @@ export default class SearchBar extends React.Component {
 
 	render() {
 		const { value } = this.state;
-		const { onUpdate } = this.props;
 
 		return (
 			<React.Fragment>
