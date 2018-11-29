@@ -5,6 +5,7 @@ import Loading from './components/loading/Loading';
 import AlbumsGrid from './components/album/AlbumsGrid';
 import TopBar from './components/topBar/TopBar'
 import PhotosGrid from './components/photo/PhotosGrid'
+import SearchBar from './components/topBar/SearchBar'
 
 import Album from './store/album';
 import Axios from 'axios';
@@ -20,7 +21,7 @@ class App extends Component {
 		this.state = { loaded: false }
 
 		// Reference to reset search value in top bar
-		this.topBar = React.createRef();
+		this.searchBar = React.createRef();
 	}
 
 	render() {
@@ -30,14 +31,18 @@ class App extends Component {
 		return loaded ?
 			<React.Fragment>
 				<TopBar
-					ref={this.topBar}
 					view={store.view}
-					onSearchValueUpdate={this.updateTitleFilter}
 					onHomeButtonClick={this.toHomeView}
 				/>
 
 				<div className="container" style={{ marginTop: "100px" }}>
 					<main>
+						<div className="justify-center">
+							<SearchBar
+								ref={this.searchBar}
+								onUpdate={this.updateTitleFilter}
+							/>
+						</div>
 						<Router path={store.view.name}>
 							<Match path="albums">
 								<AlbumsGrid
@@ -73,7 +78,7 @@ class App extends Component {
 
 	toHomeView = () => {
 		this.props.store.resetFilters();
-		this.topBar.current.resetSearchValue();
+		this.searchBar.current.resetInput();
 		this.props.store.view = {
 			name: 'albums',
 			album: { photos: [] }

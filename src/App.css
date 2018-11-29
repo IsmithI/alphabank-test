@@ -37,6 +37,7 @@ h5, h6 {
 }
 
 input.search-input {
+	
 	padding-bottom: 8px;
 	border: none;
 	background: transparent;
@@ -52,19 +53,24 @@ input.search-input.dark {
 	color: #fff;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.dark::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #f0f0f0;
     opacity: 1; /* Firefox */
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+.dark:-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: #f0f0f0;
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
+.dark::-ms-input-placeholder { /* Microsoft Edge */
     color: #f0f0f0;
 }
 
+.justify-center {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+}
 
 @media only screen and (min-width: 1200px) {
 
