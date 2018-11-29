@@ -38,3 +38,12 @@ input.search-input:focus {
 input.search-input.dark {
 	color: #fff;
 }
+
+
+
+@media only screen and (min-width: 1200px) {
+
+	.container {
+		max-width: 1600px;
+	}
+}

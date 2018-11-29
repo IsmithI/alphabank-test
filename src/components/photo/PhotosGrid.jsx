@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../Grid.css';
 import Photo from './Photo';
 import Loading from '../loading/Loading';
+import NotFound from '../NotFound';
 
 export default class PhotosGrid extends Component {
 
@@ -22,9 +23,7 @@ export default class PhotosGrid extends Component {
 					{photos.length > 0 ?
 						photos.map((photo, i) => <Photo {...photo} key={i} onLoad={this.handleImageLoad} />)
 						:
-						<div className="text-center text-muted">
-							<h2>Nothing is found by your request!</h2>
-						</div>
+						<NotFound />
 					}
 				</div>
 			</React.Fragment>

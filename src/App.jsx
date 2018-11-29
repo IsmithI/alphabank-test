@@ -32,7 +32,7 @@ class App extends Component {
 					onHomeButtonClick={this.toHomeView}
 				/>
 
-				<div className="container-fluid" style={{ marginTop: 72 }}>
+				<div className="container" style={{ marginTop: 72 }}>
 					<main>
 						<Router path={store.view.name}>
 							<Match path="albums">
