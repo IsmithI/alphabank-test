@@ -5,11 +5,11 @@ import './Grid.css';
 
 export default class AlbumsGrid extends Component {
 	render() {
-		const { albums } = this.props;
+		const { albums, onAlbumChoose } = this.props;
 
 		return (
 			<div className="grid">
-				{ albums.map((album, i) => <Album data={album} key={i} />)}
+				{ albums.map((album, i) => <Album data={album} key={i} onAlbumChoose={onAlbumChoose} />)}
 			</div>
 		)
 	}

@@ -8,3 +8,7 @@ body {
 	box-shadow: 0 5px 12px 0.2px rgba(1, 1, 1, 0.15);
 	border-radius: 12px;
 }
+
+.card-subtitle {
+	padding: 0.5em;
+}

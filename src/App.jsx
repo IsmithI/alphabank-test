@@ -4,6 +4,7 @@ import './App.css';
 import Loading from './components/loading/Loading';
 import AlbumsGrid from './components/AlbumsGrid';
 import TopBar from './components/TopBar'
+import PhotosGrid from './components/PhotosGrid'
 
 import Album from './store/album';
 import Axios from 'axios';
@@ -28,7 +29,17 @@ class App extends Component {
 
 				<div className="container-fluid">
 					<main>
-						<AlbumsGrid albums={store.albums.filter(store.filter)} />
+						{store.view.name === "albums" ?
+							<AlbumsGrid 
+								albums={store.albums.filter(store.filter)} 
+								onAlbumChoose={this.chooseAlbum} 
+							/>
+							:
+							<PhotosGrid 
+								photos={store.allPhotos([store.filter])}
+							/>
+						}
+						
 					</main>
 				</div>
 			</React.Fragment >
@@ -38,6 +49,13 @@ class App extends Component {
 
 	updateFilter = searchValue => {
 		this.props.store.titleFilter = searchValue;
+	}
+
+	chooseAlbum = albumId => {
+		this.props.store.view = {
+			name: "photos",
+			albumId
+		}
 	}
 
 	componentWillMount = () => {
