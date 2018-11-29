@@ -1,3 +1,3 @@
-## Simple gallery
+# Simple gallery
 
-# No ```!important``` was used during the style development :)
+## No ```!important``` was used during the style development :)
