@@ -39,7 +39,7 @@ class App extends Component {
 							/>
 							:
 							<PhotosGrid 
-								photos={store.allPhotos([store.filter])}
+								photos={store.allPhotos([store.filter, (photo) => photo.albumId === store.view.albumId])}
 							/>
 						}
 						

@@ -3,10 +3,19 @@ body {
 }
 
 .card {
+	width: 15rem;
+	height: auto;
+
 	margin: 1em;
 	background-color: #fff;
-	box-shadow: 0 5px 12px 0.2px rgba(1, 1, 1, 0.15);
+	box-shadow: 0 5px 12px 1px rgba(1, 1, 1, 0.15);
 	border-radius: 12px;
+
+	transition: 0.2s ease-out;
+}
+
+.card:hover {
+	box-shadow: 0 5px 12px 4px rgba(104, 149, 221, 0.205);
 }
 
 .card-subtitle {

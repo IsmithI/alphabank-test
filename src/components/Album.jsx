@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react'
 
-import './Album.css';
 import {AlbumCover} from './Photo';
 
 export default class Album extends Component {
@@ -11,7 +10,7 @@ export default class Album extends Component {
 		const { id, title, topPhoto, photos } = this.props.data;
 		
 		return (
-			<div className="album card" onClick={() => onAlbumChoose(id)}>
+			<div className="card" onClick={() => onAlbumChoose(id)}>
 				<AlbumCover {...topPhoto} small/>
 				<div className="card-body">
 					<h5 className="card-title">{title}</h5>

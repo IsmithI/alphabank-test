@@ -3,7 +3,7 @@
 	color: #fff;
 	background-color: rgb(31, 31, 31);
 	border-radius: 12px;
-	box-shadow: 0 5px 12px 0.2px rgba(1, 1, 1, 0.15);
+	box-shadow: 0 5px 12px 1px rgba(1, 1, 1, 0.15);
 }
 
 .photo-title {
