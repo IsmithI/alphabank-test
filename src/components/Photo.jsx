@@ -1,19 +1,32 @@
 import React from 'react'
 import './Photo.css'
 
-export default props => {
-	const { url, thumbnailUrl, title, small, onLoad } = props;
-	return (
-		<div className="photo">
-			<img 
-				className="img" 
-				src={small ? thumbnailUrl : url} 
-				alt={title}
-				onLoad={onLoad}
-			/>
-			<div className="photo-title">{title}</div>
-		</div>
-	)
+export default class Photo extends React.Component {
+
+	state = { loaded: false }
+
+	render() {
+		const { loaded } = this.state;
+		const { url, thumbnailUrl, title, small } = this.props;
+
+		return (
+			<div className="photo">
+				<img
+					className="img"
+					src={small ? thumbnailUrl : url}
+					alt={title}
+					onLoad={this.onLoad}
+				/>
+				{loaded ? <div className="photo-title">{title}</div> : <React.Fragment />}
+
+			</div>
+		)
+	}
+
+	onLoad = () => {
+		this.setState({ loaded: true });
+		this.props.onLoad();
+	}
 }
 
 

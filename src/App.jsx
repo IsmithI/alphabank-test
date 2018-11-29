@@ -67,6 +67,7 @@ class App extends Component {
 	}
 
 	toHomeView = () => {
+		window.scrollTo(0, 0);
 		this.props.store.view = {
 			name: 'albums',
 			album: {}

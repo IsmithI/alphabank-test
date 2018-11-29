@@ -40,7 +40,7 @@ export default class PhotosGrid extends Component {
 	}
 
 	onScroll = () => {
-		if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - window.innerHeight / 2)) {
+		if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - window.innerHeight / 1.5)) {
 			this.setState({ page: this.state.page + 1 });
 		}
 	}
