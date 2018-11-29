@@ -7,7 +7,7 @@ export default class Album extends Component {
 
 	render() {
 		const { onAlbumChoose } = this.props;
-		const { id, title, topPhoto, photos } = this.props.data;
+		const { title, topPhoto, photos } = this.props.data;
 		
 		return (
 			<div className="card" onClick={() => onAlbumChoose(this.props.data)}>
