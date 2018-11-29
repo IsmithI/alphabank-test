@@ -48,24 +48,26 @@ export default class TopBar extends Component {
 
 					{/* If user doesn't select an album, show hint */}
 					<Match path="albums">
-						<div className="collapse navbar-collapse" id="collapsibleNavbar">
-							<div className="navbar-container">
-								<div className="navbar-text">
-									<h4>Click an album to view it</h4>
-								</div>
-								<div className="navbar-text">
-									<span className="mr-2 ml-2">
-										<i className="fas fa-search"></i>
-									</span>
-									<input
-										type="text"
-										className="search-input dark"
-										placeholder="Type to search..."
-										value={searchValue}
-										onChange={this.updateSearchValue}
-										autoFocus={true}
-									/>
-								</div>
+						<div className="navbar-text">
+							<h4>Click an album to view it</h4>
+						</div>
+						<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+							<span className="navbar-toggler-icon"></span>
+						</button>
+
+						<div className="collapse navbar-collapse" id="collapsibleNavbar" style={{justifyContent: "flex-end"}}>
+							<div className="navbar-text">
+								<span className="mr-2 ml-2">
+									<i className="fas fa-search"></i>
+								</span>
+								<input
+									type="text"
+									className="search-input dark"
+									placeholder="Type to search..."
+									value={searchValue}
+									onChange={this.updateSearchValue}
+									autoFocus={true}
+								/>
 							</div>
 						</div>
 					</Match>

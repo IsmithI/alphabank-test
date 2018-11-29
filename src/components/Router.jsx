@@ -19,5 +19,5 @@ export default props => {
  * A component that renders it's children only if value is matched with the path
  */
 export function Match(props) {
-	return props.path === props.currentPath ? props.children : <React.Fragment />;
+	return props.path === props.currentPath || props.all ? props.children : null;
 }
