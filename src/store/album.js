@@ -13,7 +13,7 @@ class Album {
 	}
 
 	get topPhoto() {
-		return this.photos.peek();
+		return this.photos[0];
 	}
 
 }

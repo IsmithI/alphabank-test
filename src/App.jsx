@@ -14,7 +14,14 @@ import Router, { Match } from './components/Router';
 const API = 'https://jsonplaceholder.typicode.com';
 class App extends Component {
 
-	state = { loaded: false }
+	constructor(props) {
+		super(props);
+
+		this.state = { loaded: false }
+
+		// Reference to reset search value in top bar
+		this.topBar = React.createRef();
+	}
 
 	render() {
 		const { store } = this.props;
@@ -23,8 +30,9 @@ class App extends Component {
 		return loaded ?
 			<React.Fragment>
 				<TopBar
+					ref={this.topBar}
 					view={store.view}
-					onSearchValueUpdate={this.updateFilter}
+					onSearchValueUpdate={this.updateTitleFilter}
 					onHomeButtonClick={this.toHomeView}
 				/>
 
@@ -39,7 +47,7 @@ class App extends Component {
 							</Match>
 							<Match path="photos">
 								<PhotosGrid
-									photos={store.allPhotos([store.filter, this.byAlbumId])}
+									photos={store.allPhotos()}
 								/>
 							</Match>
 						</Router>
@@ -50,11 +58,13 @@ class App extends Component {
 			<Loading />
 	}
 
-	updateFilter = searchValue => {
+	updateTitleFilter = searchValue => {
 		this.props.store.titleFilter = searchValue;
+		this.props.store.view.name = "photos";
 	}
 
 	chooseAlbum = album => {
+		this.props.store.albumFilter = album.id;
 		this.props.store.view = {
 			name: "photos",
 			album
@@ -62,9 +72,11 @@ class App extends Component {
 	}
 
 	toHomeView = () => {
+		this.props.store.resetFilters();
+		this.topBar.current.resetSearchValue();
 		this.props.store.view = {
 			name: 'albums',
-			album: {}
+			album: { photos: [] }
 		}
 	}
 

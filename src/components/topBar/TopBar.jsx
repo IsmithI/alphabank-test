@@ -39,6 +39,7 @@ export default class TopBar extends Component {
 										placeholder="Type to search..."
 										value={searchValue}
 										onChange={this.updateSearchValue}
+										autoFocus={true}
 									/>
 								</div>
 							</div>
@@ -47,8 +48,25 @@ export default class TopBar extends Component {
 
 					{/* If user doesn't select an album, show hint */}
 					<Match path="albums">
-						<div className="navbar-text">
-							<h4>Click an album to view it</h4>
+						<div className="collapse navbar-collapse" id="collapsibleNavbar">
+							<div className="navbar-container">
+								<div className="navbar-text">
+									<h4>Click an album to view it</h4>
+								</div>
+								<div className="navbar-text">
+									<span className="mr-2 ml-2">
+										<i className="fas fa-search"></i>
+									</span>
+									<input
+										type="text"
+										className="search-input dark"
+										placeholder="Type to search..."
+										value={searchValue}
+										onChange={this.updateSearchValue}
+										autoFocus={true}
+									/>
+								</div>
+							</div>
 						</div>
 					</Match>
 				</Router>
@@ -65,5 +83,10 @@ export default class TopBar extends Component {
 
 		this.setState({ searchValue: value });
 		this.props.onSearchValueUpdate(value);
+	}
+
+	resetSearchValue = () => {
+		this.setState({ searchValue: "" });
+		this.props.onSearchValueUpdate("");
 	}
 }

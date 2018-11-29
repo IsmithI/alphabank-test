@@ -3,10 +3,13 @@ import { observable, decorate, intercept } from 'mobx';
 class ObservableStore {
 
 	albums = [];
-	filter = a => true;
+	filters = {
+		title: a => true,
+		album: a => true
+	}
 	view = {
 		name: 'albums',
-		album: {}
+		album: { photos: [] }
 	}
 
 	constructor() {
@@ -17,25 +20,38 @@ class ObservableStore {
 	}
 
 	set titleFilter(value) {
-		this.filter = album => album.title.includes(value);
+		this.filters.title = photo => photo.title.includes(value);
 	}
 
-	allPhotos = (filters = []) => {
+	set albumFilter(albumId) {
+		this.filters.album = photo => photo.albumId === albumId;
+	}
+
+	allPhotos = () => {
 		let photos = [];
+		// Extract photos from albums into one array
 		this.albums.forEach(album => {
 			photos = photos.concat(album.photos);
 		});
 
-		filters.forEach(filter => {
-			photos = photos.filter(filter);
+		// Filter photos by applied filters
+		Object.entries(this.filters).map(([key, filter]) => {
+			return photos = photos.filter(filter);
 		});
 
 		return photos;
 	}
+
+	resetFilters = () => {
+		this.filters.title = a => true;
+		this.filters.album = a => true;
+	}
+
 }
+
 decorate(ObservableStore, {
 	albums: observable,
-	filter: observable,
+	filters: observable,
 	view: observable
 })
 
