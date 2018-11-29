@@ -41,13 +41,10 @@ input.search-input {
 	border: none;
 	background: transparent;
 
-	border-bottom: 3px solid rgb(196, 196, 196);
-
 	font-size: 20px;
 }
 
 input.search-input:focus {
-	border-bottom: 3px solid rgb(196, 196, 196);
 	outline: none;
 }
 
@@ -55,6 +52,18 @@ input.search-input.dark {
 	color: #fff;
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #f0f0f0;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #f0f0f0;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #f0f0f0;
+}
 
 
 @media only screen and (min-width: 1200px) {

@@ -29,13 +29,18 @@ export default class TopBar extends Component {
 								<div className="navbar-text">
 									<h3>{view.album.title}</h3>
 								</div>
-								<input
-									type="text"
-									className="search-input dark"
-									placeholder="Type to search..."
-									value={searchValue}
-									onChange={this.updateSearchValue}
-								/>
+								<div className="navbar-text">
+									<span className="mr-2 ml-2">
+									<i className="fas fa-search"></i>	
+									</span>
+									<input
+										type="text"
+										className="search-input dark"
+										placeholder="Type to search..."
+										value={searchValue}
+										onChange={this.updateSearchValue}
+									/>
+								</div>
 							</div>
 						</div>
 					</Match>

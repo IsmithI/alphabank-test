@@ -4,6 +4,10 @@
 	width: 100%;
 }
 
+.navbar-dark .navbar-text {
+	color: #f0f0f0;
+}
+
 @media only screen and (max-width: 564px) {
 	.navbar-container {
 		display: block;
