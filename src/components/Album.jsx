@@ -10,7 +10,7 @@ export default class Album extends Component {
 		const { id, title, topPhoto, photos } = this.props.data;
 		
 		return (
-			<div className="card" onClick={() => onAlbumChoose(id)}>
+			<div className="card" onClick={() => onAlbumChoose(this.props.data)}>
 				<AlbumCover {...topPhoto} small/>
 				<div className="card-body">
 					<h5 className="card-title">{title}</h5>

@@ -9,6 +9,7 @@ import PhotosGrid from './components/PhotosGrid'
 import Album from './store/album';
 import Axios from 'axios';
 import { observer } from 'mobx-react';
+import Router, { Match } from './components/Router';
 
 const API = 'https://jsonplaceholder.typicode.com';
 class App extends Component {
@@ -25,24 +26,27 @@ class App extends Component {
 
 		return loaded ?
 			<React.Fragment>
-				<TopBar 
-					onSearchValueUpdate={this.updateFilter} 
+				<TopBar
+					view={store.view}
+					onSearchValueUpdate={this.updateFilter}
 					onHomeButtonClick={this.toHomeView}
 				/>
 
-				<div className="container-fluid" style={{marginTop: 72}}>
+				<div className="container-fluid" style={{ marginTop: 72 }}>
 					<main>
-						{store.view.name === "albums" ?
-							<AlbumsGrid 
-								albums={store.albums.filter(store.filter)} 
-								onAlbumChoose={this.chooseAlbum} 
-							/>
-							:
-							<PhotosGrid 
-								photos={store.allPhotos([store.filter, (photo) => photo.albumId === store.view.albumId])}
-							/>
-						}
-						
+						<Router path={store.view.name}>
+							<Match path="albums">
+								<AlbumsGrid
+									albums={store.albums}
+									onAlbumChoose={this.chooseAlbum}
+								/>
+							</Match>
+							<Match path="photos">
+								<PhotosGrid
+									photos={store.allPhotos([store.filter, (photo) => photo.albumId === store.view.album.id])}
+								/>
+							</Match>
+						</Router>
 					</main>
 				</div>
 			</React.Fragment >
@@ -54,17 +58,18 @@ class App extends Component {
 		this.props.store.titleFilter = searchValue;
 	}
 
-	chooseAlbum = albumId => {
+	chooseAlbum = album => {
 		window.scrollTo(0, 0);
 		this.props.store.view = {
 			name: "photos",
-			albumId
+			album
 		}
 	}
 
 	toHomeView = () => {
 		this.props.store.view = {
-			name: 'albums'
+			name: 'albums',
+			album: {}
 		}
 	}
 

@@ -5,7 +5,8 @@ class ObservableStore {
 	albums = [];
 	filter = a => true;
 	view = {
-		name: 'albums'
+		name: 'albums',
+		album: {}
 	}
 
 	set titleFilter(value) {

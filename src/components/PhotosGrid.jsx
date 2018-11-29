@@ -20,7 +20,13 @@ export default class PhotosGrid extends Component {
 			:
 			<React.Fragment>
 				<div className="grid" style={{ justifyContent: "center" }}>
-					{photos.map((photo, i) => <Photo {...photo} key={i} />)}
+					{photos.length > 0 ?
+						photos.map((photo, i) => <Photo {...photo} key={i} />)
+						:
+						<div className="text-center text-muted">
+							<h2>Nothing is found by your request!</h2>
+						</div>	
+					}
 				</div>
 			</React.Fragment>
 	}
@@ -38,7 +44,7 @@ export default class PhotosGrid extends Component {
 
 	onScroll = () => {
 		if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - window.innerHeight / 2)) {
-			this.setState({ page: this.state.page+1 });
+			this.setState({ page: this.state.page + 1 });
 		}
 	}
 }
