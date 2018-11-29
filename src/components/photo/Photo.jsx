@@ -23,6 +23,9 @@ export default class Photo extends React.Component {
 		)
 	}
 
+	/**
+	 * To handle image load
+	 */
 	onLoad = () => {
 		this.setState({ loaded: true });
 		this.props.onLoad();

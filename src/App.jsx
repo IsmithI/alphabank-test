@@ -14,11 +14,7 @@ import Router, { Match } from './components/Router';
 const API = 'https://jsonplaceholder.typicode.com';
 class App extends Component {
 
-	constructor(props) {
-		super(props);
-
-		this.state = { loaded: false }
-	}
+	state = { loaded: false }
 
 	render() {
 		const { store } = this.props;
@@ -43,7 +39,7 @@ class App extends Component {
 							</Match>
 							<Match path="photos">
 								<PhotosGrid
-									photos={store.allPhotos([store.filter, (photo) => photo.albumId === store.view.album.id])}
+									photos={store.allPhotos([store.filter, this.byAlbumId])}
 								/>
 							</Match>
 						</Router>
@@ -88,8 +84,20 @@ class App extends Component {
 			});
 	}
 
+	/**
+	 * A predicate to determine that photo belongs to the current albumn
+	 */
+	byAlbumId = photo => {
+		const { store } = this.props;
+		return photo.albumId === store.view.album.id;
+	}
+
 }
 
+/**
+ * Added new method to Array class
+ * returns last element from array but not removes it (like pop())
+ */
 Array.prototype.peek = function () {
 	return this[this.length - 1];
 }

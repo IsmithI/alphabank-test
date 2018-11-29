@@ -31,7 +31,7 @@ export default class TopBar extends Component {
 								</div>
 								<div className="navbar-text">
 									<span className="mr-2 ml-2">
-									<i className="fas fa-search"></i>	
+										<i className="fas fa-search"></i>
 									</span>
 									<input
 										type="text"
@@ -45,6 +45,7 @@ export default class TopBar extends Component {
 						</div>
 					</Match>
 
+					{/* If user doesn't select an album, show hint */}
 					<Match path="albums">
 						<div className="navbar-text">
 							<h4>Click an album to view it</h4>
@@ -56,6 +57,9 @@ export default class TopBar extends Component {
 		)
 	}
 
+	/**
+	 * A function to update input and call outer function in order to filter photoes
+	 */
 	updateSearchValue = e => {
 		const value = e.target.value;
 

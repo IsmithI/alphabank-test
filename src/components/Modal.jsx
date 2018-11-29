@@ -2,6 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 const modalRoot = document.getElementById('modal-root');
 
+/**
+ * A custom Modal class
+ * Did own implementation instead of bootstrap Modal to learn Portals
+ */
 export default class Modal extends React.Component {
 
 	constructor(props) {
